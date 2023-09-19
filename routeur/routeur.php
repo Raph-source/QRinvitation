@@ -10,7 +10,9 @@
             $this->allRequest = [
                 'AdminController' => [
                     'home' => 'getFormAuth',
-                    'authentification-administrateur' => 'authentification'
+                    'authentification-administrateur' => 'authentification',
+                    'ajouter-invite' => 'getFormAjouterInvite',
+                    'form-ajout-invite' => 'ajouterInvite'
                 ]
             ];
         }

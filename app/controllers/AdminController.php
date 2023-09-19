@@ -34,4 +34,23 @@
                 require_once VIEW.'admin/authentification.php';
             }
         }
+
+        public function getFormAjouterInvite(){
+            require_once VIEW.'admin/ajouterInvite.php';
+        }
+
+        public function ajouterInvite(){
+            if($this->superGlobal->checkPost(['nom', 'prenom', 'phone'])){
+                
+                var_dump($this->superGlobal->post);
+                //récuperation de valeur du formulaire en les injections
+                $nom = $this->superGlobal->post['nom'];
+                $prenom = $this->superGlobal->post['prenom'];
+                $phone = $this->superGlobal->post['phone'];
+            }
+            else{
+                $notif = 'pas de champs vide svp !!!';
+                require_once VIEW.'admin/ajouterInvite.php';
+            }
+        }
     }

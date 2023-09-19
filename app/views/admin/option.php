@@ -5,6 +5,7 @@ require_once HEADER;
 ?>
 <a href="ajouter-invite">Ajouter un invité</a><br>
 <a href="modifier-pwd">Modifier votre mot de passe</a><br>
+<a href="deconnexion">Déconnexion</a><br>
 <?php
     if(isset($notif))
         echo $notif;
