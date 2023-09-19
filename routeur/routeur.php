@@ -3,14 +3,16 @@
         private $request;//l'url demandé
 
         //le tableau des URLs, controleurs et leurs méthodes
-        private $allRequest = [
-            'AdminController' => [
-                
-            ]
-        ];
+        private $allRequest;
        
         public function __construct($request){
             $this->request = $request;
+            $this->allRequest = [
+                'AdminController' => [
+                    'home' => 'getFormAuth',
+                    'authentification-administrateur' => 'authentification'
+                ]
+            ];
         }
         //cette fonction renvoi au controleur demandé
         public function goToController(){
