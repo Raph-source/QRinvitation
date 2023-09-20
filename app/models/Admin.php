@@ -1,10 +1,10 @@
 <?php
-    class Admin{
-        private $bdd;
-
+    require_once 'model.php';
+    require_once 'qrCode.php';
+    class Admin extends Model{
+        public $qrCode;
         public function __construct(){
-            $this->bdd = new PDO("mysql:host=localhost;dbname=invitation", "root", '');
-            
+            $this->qrCode = new Qr_code();
         }
 
         public function checkAuth($pseudo, $pwd):bool{
