@@ -14,8 +14,12 @@ require_once HEADER;
     if(isset($notif))
         echo $notif.'<br>';
     if(isset($lienQrCode))
-        echo '<img src="'.$lienQrCode.'" alt="qrCode" width="100" heigth="100">';  
+        echo '<img src="'.$lienQrCode.'" alt="qrCode" width="100" heigth="100"><br>
+              <a href="'.$lienQrCode.'" download>Téléchar l\'image</a>
+        ';  
 ?>
+<a href="retour-option">Retour vers les options</a>
+
 <?php
 require_once FOOTER;
 ?>

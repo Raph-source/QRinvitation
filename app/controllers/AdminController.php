@@ -62,15 +62,30 @@
                         //vérifier que le numéro conforme
                         if(preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phone) && 
                            preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phoneConf)){
-                            //génération du QRcode
-                            $lienQrCode = STORAGE_LINK.$nomQrCode.'.png';
-                            QRcode::png($contenu, $chemin.'.png');
-                            //sauvegarde dans la bdd
-                            $this->model->qrCode->setChemin($lienQrCode);
 
-                            $notif = "client enregistré avec succès";
-                            require_once VIEW.'admin/ajouterInvite.php';
-                            
+                            //vérifier que le numéro soit unique
+                            if($this->model->invite->phoneUnique($phone)){
+
+                                //génération du QrCode
+                                $lienQrCode = STORAGE_LINK.$nomQrCode.'.png';
+                                QRcode::png($contenu, $chemin.'.png');
+
+
+                                //sauvegarde du QrCode dans la bdd
+                                $this->model->qrCode->setChemin($lienQrCode);
+
+                                //sauvegarde du client dans la bdd
+                                $idQrCode = $this->model->qrCode->getId($lienQrCode);
+                                $this->model->invite->setAttribut($nom, $prenom, $phone, $idQrCode);
+                                $this->model->invite->save();
+                                
+                                $notif = "client enregistré avec succès";
+                                require_once VIEW.'admin/ajouterInvite.php';
+                            }
+                            else{
+                                $notif = "il existe déjà un invité avec ce numéro";
+                                require_once VIEW.'admin/ajouterInvite.php';
+                            } 
                         }
                         else{
                             $notif = "Numéro mal saisie";
