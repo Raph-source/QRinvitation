@@ -26,15 +26,37 @@ class Invite extends Model{
             return true;
         return false;
     }
-    public function save():void{
-        $requete = $this->bdd->prepare("INSERT INTO invite(nom, prenom, numPhone, idCode) 
-                    VALUES(:nom, :prenom, :numPhone, :idCode)");
-                
-        $requete->bindParam(':nom', $this->nom);
-        $requete->bindParam(':prenom', $this->prenom);
-        $requete->bindParam(':numPhone', $this->phone);
-        $requete->bindParam(':idCode', $this->idQrCode);
+    public function save():bool{
 
-        $requete->execute();
+        try{
+            $requete = $this->bdd->prepare("INSERT INTO invite(nom, prenom, numPhone, idCode) 
+            VALUES(:nom, :prenom, :numPhone, :idCode)");
+        
+            $requete->bindParam(':nom', $this->nom);
+            $requete->bindParam(':prenom', $this->prenom);
+            $requete->bindParam(':numPhone', $this->phone);
+            $requete->bindParam(':idCode', $this->idQrCode);
+
+            $requete->execute();
+
+            return true;
+        }
+        catch(Exception $e){
+            return false;
+        }
+
+    }
+
+    public function delete($phone):bool{
+        try{
+            $requete = $this->bdd->prepare("DELETE FROM invite WHERE numPhone = :numPhone");
+            $requete->bindParam(':numPhone', $phone);
+            $requete->execute();
+
+            return true;
+        }
+        catch(Exception $e){
+            return false;
+        }
     }
 }

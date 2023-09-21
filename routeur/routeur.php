@@ -12,7 +12,10 @@
                     'home' => 'getFormAuth',
                     'authentification-administrateur' => 'authentification',
                     'ajouter-invite' => 'getFormAjouterInvite',
-                    'form-ajout-invite' => 'ajouterInvite'
+                    'form-ajout-invite' => 'ajouterInvite',
+                    'retour-option' => 'retourOption',
+                    'supprimer-invite' => 'getFormSupprimerInvite',
+                    'formulaire-supprimer-invite' => 'supprimerInvite'
                 ]
             ];
         }

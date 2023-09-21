@@ -11,7 +11,7 @@ class SuperGlobal{
 
         foreach($arrayOfKeys as $key){
             if(!empty($_POST[$key])){
-                $this->post[$key] = htmlspecialchars($_POST[$key]);
+                $this->post[$key] = escapeshellcmd(htmlspecialchars($_POST[$key]));
                 $trouver++;
             }
         }

@@ -77,9 +77,14 @@
                                 //sauvegarde du client dans la bdd
                                 $idQrCode = $this->model->qrCode->getId($lienQrCode);
                                 $this->model->invite->setAttribut($nom, $prenom, $phone, $idQrCode);
-                                $this->model->invite->save();
                                 
-                                $notif = "client enregistré avec succès";
+                                if($this->model->invite->save()){
+                                    $notif = "client enregistré avec succès";
+                                }
+                                else{
+                                    $notif = "Une Erreur est survevu";
+                                }   
+
                                 require_once VIEW.'admin/ajouterInvite.php';
                             }
                             else{
@@ -107,6 +112,47 @@
             else{
                 $notif = 'pas de champs vide svp !!!';
                 require_once VIEW.'admin/ajouterInvite.php';
+            }
+        }
+
+        public function retourOption(){
+            require_once VIEW.'admin/option.php';
+        }
+
+        public function getFormSupprimerInvite(){
+            require_once VIEW.'admin/supprimerInvite.php';
+        }
+
+        public function supprimerInvite(){
+
+            if($this->superGlobal->checkPost(['phone'])){
+                $phone = $this->superGlobal->post['phone'];
+                //vérifier que le numéro conforme
+                if(preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phone)){
+                    if(!$this->model->invite->phoneUnique($phone)){
+                        if($this->model->invite->delete($phone)){
+                            $notif = "client supprimé avec succès";
+                        }
+                        else{
+                            $notif = "Erreur de la supression";
+                        }
+                        require_once VIEW.'admin/supprimerInvite.php';
+
+                    }
+                    else{
+                        $notif = "Aucun client n'a ce numéro";
+                        require_once VIEW.'admin/supprimerInvite.php';                    
+                    }
+                }
+                else{
+                    $notif = "Numéro non valide";
+                    require_once VIEW.'admin/supprimerInvite.php';                      
+                }
+
+            }
+            else{
+                $notif = "Pas de champs vide svp !!!";
+                require_once VIEW.'admin/supprimerInvite.php';
             }
         }
     }
