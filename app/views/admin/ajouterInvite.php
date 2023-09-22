@@ -2,6 +2,7 @@
 $title = 'ajout invité';
 $style = ASSETS_CSS.'admin/ajouterInvite.css';
 require_once HEADER;
+require_once 'option.php';
 ?>
 <form action="form-ajout-invite" method="post">
     <input type="text" name="nom" id="" placeholder="Entrez le nom de l'invité"><br>
@@ -18,7 +19,6 @@ require_once HEADER;
               <a href="'.$lienQrCode.'" download>Téléchar l\'image</a>
         ';  
 ?>
-<a href="retour-option">Retour vers les options</a>
 
 <?php
 require_once FOOTER;

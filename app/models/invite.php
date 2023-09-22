@@ -59,4 +59,17 @@ class Invite extends Model{
             return false;
         }
     }
+
+    public function find($phone){
+        $requete = $this->bdd->prepare("SELECT path FROM invite AS i
+                INNER JOIN qrCode AS q ON i.idCode = q.id
+                WHERE numPhone = :numPhone");
+
+        $requete->bindParam(':numPhone', $phone);
+        $requete->execute();
+
+        $trouver = $requete->fetch();
+
+        return $trouver;
+    }
 }

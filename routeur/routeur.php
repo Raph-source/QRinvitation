@@ -15,7 +15,9 @@
                     'form-ajout-invite' => 'ajouterInvite',
                     'retour-option' => 'retourOption',
                     'supprimer-invite' => 'getFormSupprimerInvite',
-                    'formulaire-supprimer-invite' => 'supprimerInvite'
+                    'formulaire-supprimer-invite' => 'supprimerInvite',
+                    'confirmer-invite' => 'getFormConfirme',
+                    'formulaire-confirme-invite' => 'confirmeInvite'
                 ]
             ];
         }

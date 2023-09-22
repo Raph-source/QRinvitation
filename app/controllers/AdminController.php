@@ -155,4 +155,40 @@
                 require_once VIEW.'admin/supprimerInvite.php';
             }
         }
+
+        public function getFormConfirme(){
+            require_once VIEW.'admin/confirmeInvite.php';
+        }
+
+        public function confirmeInvite(){
+
+            if($this->superGlobal->checkPost(['phone'])){
+                $phone = $this->superGlobal->post['phone'];
+                //vérifier que le numéro conforme
+                if(preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phone)){
+                    if(!$this->model->invite->phoneUnique($phone)){
+                        
+                        $trouver = $this->model->invite->find($phone);
+                        $lienQrCode = $trouver['path'];
+
+                        require_once VIEW.'admin/confirmeInvite.php';
+
+                    }
+                    else{
+                        $notif = "Aucun client n'a ce numéro";
+                        require_once VIEW.'admin/confirmeInvite.php';                    
+                    }
+                }
+                else{
+                    $notif = "Numéro non valide";
+                    require_once VIEW.'admin/confirmeInvite.php';                      
+                }
+
+            }
+            else{
+                $notif = "Pas de champs vide svp !!!";
+                require_once VIEW.'admin/confirmeInvite.php';
+            }
+
+        }
     }

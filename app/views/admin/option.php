@@ -1,7 +1,5 @@
 <?php
-$title = 'option';
 $style = ASSETS_CSS.'admin/option.css';
-require_once HEADER;
 ?>
 <a href="ajouter-invite">Ajouter un invité</a><br>
 <a href="supprimer-invite">Supprimer un invité</a><br>
@@ -12,7 +10,4 @@ require_once HEADER;
 <?php
     if(isset($notif))
         echo $notif;
-?>
-<?php
-require_once FOOTER;
 ?>
