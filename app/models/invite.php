@@ -60,7 +60,7 @@ class Invite extends Model{
         }
     }
 
-    public function find($phone){
+    public function find($phone):array{
         $requete = $this->bdd->prepare("SELECT path FROM invite AS i
                 INNER JOIN qrCode AS q ON i.idCode = q.id
                 WHERE numPhone = :numPhone");
@@ -71,5 +71,22 @@ class Invite extends Model{
         $trouver = $requete->fetch();
 
         return $trouver;
+    }
+
+    public function getInvitePaginate($debut, $nombreInvite):array{
+        $requete = $this->bdd->query("SELECT * FROM invite AS i
+                    INNER JOIN qrCode AS q ON i.idCode = q.id LIMIT $debut, $nombreInvite");
+        $trouver = $requete->fetchAll();
+
+        return $trouver;
+    }
+
+    public function getNombrePage():int{
+        $requete = $this->bdd->query("SELECT COUNT(i.id) AS nombre FROM invite AS i
+        INNER JOIN qrCode AS q ON i.idCode = q.id");
+        
+        return $requete->fetch()['nombre'];
+
+
     }
 }

@@ -23,7 +23,7 @@
                 $pwd = $this->superGlobal->post['pwd'];
 
                 if($this->model->checkAuth($pseudo, $pwd)){
-                    require_once VIEW.'admin/option.php';
+                    require_once VIEW.'admin/acceuil.php';
                 }
                 else{
                     $notif = 'pseudo ou mot de passe incorrecte';
@@ -190,5 +190,31 @@
                 require_once VIEW.'admin/confirmeInvite.php';
             }
 
+        }
+
+        public function voirToutInvite(){
+            if($this->superGlobal->checkGet(['page'])){
+                
+                $nombreInviteParPage = 2;//nombre d'invité par page
+                $nombrePage = ceil($this->model->invite->getNombrePage() / $nombreInviteParPage);//nombre de page dans la pagination
+                
+                $pageCourante = intval($this->superGlobal->get['page']);
+
+                $debut = ($pageCourante - 1) * $nombreInviteParPage;
+                echo $debut; exit;
+                $trouver = $this->model->invite->getInvitePaginate($debut, $nombreInviteParPage);
+                
+                
+                require_once VIEW.'admin/voirToutInvite.php';
+
+            }
+            else{
+                require_once VIEW.'_404.php';
+            }
+
+        }
+
+        public function _404(){
+            require_once VIEW.'_404.php';
         }
     }

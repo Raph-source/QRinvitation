@@ -20,5 +20,21 @@ class SuperGlobal{
             return true;
         return false;
     }
+
+    public function checkGet($arrayOfKeys):bool{
+        $trouver = 0;
+        $lenArray = count($arrayOfKeys);
+
+        foreach($arrayOfKeys as $key){
+            if(!empty($_GET[$key])){
+                $this->get[$key] = escapeshellcmd(htmlspecialchars($_GET[$key]));
+                $trouver++;
+            }
+        }
+
+        if($trouver == $lenArray)
+            return true;
+        return false;
+    }
 }
 ?>

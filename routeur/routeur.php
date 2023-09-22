@@ -17,7 +17,9 @@
                     'supprimer-invite' => 'getFormSupprimerInvite',
                     'formulaire-supprimer-invite' => 'supprimerInvite',
                     'confirmer-invite' => 'getFormConfirme',
-                    'formulaire-confirme-invite' => 'confirmeInvite'
+                    'formulaire-confirme-invite' => 'confirmeInvite',
+                    'voir-tout-invite' => 'voirToutInvite',
+                    'Erreur404' => '_404'
                 ]
             ];
         }
@@ -40,6 +42,6 @@
             }
 
             if(!$_404)
-                echo 'Ereur 404';
+                header('Location: Erreur404');
         }   
     }
