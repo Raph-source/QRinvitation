@@ -26,7 +26,7 @@ class SuperGlobal{
         $lenArray = count($arrayOfKeys);
 
         foreach($arrayOfKeys as $key){
-            if(!empty($_GET[$key])){
+            if(isset($_GET[$key])){
                 $this->get[$key] = escapeshellcmd(htmlspecialchars($_GET[$key]));
                 $trouver++;
             }

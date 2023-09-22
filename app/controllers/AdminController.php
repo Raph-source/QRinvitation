@@ -198,10 +198,11 @@
                 $nombreInviteParPage = 2;//nombre d'invité par page
                 $nombrePage = ceil($this->model->invite->getNombrePage() / $nombreInviteParPage);//nombre de page dans la pagination
                 
-                $pageCourante = intval($this->superGlobal->get['page']);
-
+                //si une chaine est passé à get on retourne 1
+                $pageCourante = intval($this->superGlobal->get['page']) === 0 ? 1 : intval($this->superGlobal->get['page']);
+                
                 $debut = ($pageCourante - 1) * $nombreInviteParPage;
-                echo $debut; exit;
+        
                 $trouver = $this->model->invite->getInvitePaginate($debut, $nombreInviteParPage);
                 
                 
