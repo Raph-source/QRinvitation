@@ -195,7 +195,7 @@
         public function voirToutInvite():void{
             if($this->superGlobal->checkGet(['page'])){
                 
-                $nombreInviteParPage = 2;//nombre d'invité par page
+                $nombreInviteParPage = 10;//nombre d'invité par page
                 $nombrePage = ceil($this->model->invite->getNombrePage() / $nombreInviteParPage);//nombre de page dans la pagination
                 
                 //si une chaine est passé à get on retourne 1
