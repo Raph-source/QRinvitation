@@ -1,0 +1,308 @@
+/*! minireset.css v0.0.6 | MIT License | github.com/jgthms/minireset.css */
+html, body, p, ol, ul, li, dl, dt, dd, blockquote, figure, fieldset, legend, textarea, pre, iframe, hr, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+    font-weight: normal;
+  }
+  
+  ul {
+    list-style: none;
+  }
+  
+  button, input, select {
+    margin: 0;
+  }
+  
+  html {
+    box-sizing: border-box;
+  }
+  
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  img, video {
+    height: auto;
+    max-width: 100%;
+  }
+  
+  iframe {
+    border: 0;
+  }
+  
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  td, th {
+    padding: 0;
+  }
+  
+  body {
+    height: 100vh;
+  }
+  body a{
+    text-decoration:none;
+    color: rgb(37, 37, 37);
+  }
+  body .container {
+    height: 100%;
+    height: 100vh;
+  }
+  body .container .header {
+    padding: 1em;
+    background-color: white;
+    position: fixed;
+    height: 4em;
+    width: 100%;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    border-bottom: 1px solid rgb(243, 243, 243);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  body .container .header .Mode {
+    position: absolute;
+    padding: 2px;
+    right: 10px;
+    top: 10px;
+    background-color: rgb(226, 225, 225);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: left;
+    width: 7em;
+    display: flex;
+    border-radius: 40px;
+    height: 3em;
+    flex-direction: row;
+    cursor: pointer;
+    box-shadow: inset 0px 0px 10px rgba(226, 225, 225, 0.5);
+    padding: 2px;
+    height: 2em;
+    width: 4em;
+    top: 0.8em;
+    right: 5em;
+  }
+  body .container .header .Mode div {
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    height: 90%;
+    width: 40%;
+    transition: all 0.3s;
+  }
+  body .container .header .Mode .active {
+    transform: translateX(150%);
+    background-color: rgb(0, 59, 73);
+  }
+  body .container .header img {
+    height: 2em;
+    width: 2em;
+    transform: translateY(10px);
+    margin-right: 10px;
+  }
+  body .container .header h3 {
+    font-weight: 400;
+    cursor: pointer;
+    margin-left: 2%;
+    font-size: 20px;
+    transform: translateY(-9px);
+  }
+  body .container .header .profil-photo {
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 5em;
+    width: 2em;
+    height: 2em;
+    transform: translateY(-4px);
+  }
+  body .container .options {
+    position: absolute;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    top: 4em;
+    left: 80%;
+    background-color: white;
+    box-shadow: 2px 5px 20px rgba(65, 65, 65, 0.356);
+    width: 20%;
+    height: 13em;
+    border-radius: 8px;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+    padding: 2%;
+  }
+  body .container .options form {
+    height: 100%;
+  }
+  body .container .options form div {
+    margin-left: 40%;
+    margin-bottom: 10px;
+    height: 3em;
+    width: 3em;
+  }
+  body .container .options form h3, body .container .options form p {
+    text-align: center;
+    font-weight: 500;
+  }
+  body .container .options form p {
+    font-weight: normal;
+    padding: 3px;
+    border-radius: 5px;
+    margin-top: 15px;
+    background-color: rgb(141, 141, 141);
+    color: white;
+    cursor: pointer;
+  }
+  body .container .invisible {
+    visibility: visible;
+  }
+  body .bg-dark {
+    background-color: rgb(0, 10, 15);
+  }
+  body .bg-dark .header {
+    background-color: rgb(0, 10, 15);
+    border-bottom: none;
+  }
+  body .bg-dark .header h3 {
+    color: white;
+  }
+  body .bg-dark .content .banner {
+    background-color: rgb(0, 10, 15);
+    border-bottom-color: rgb(124, 124, 124);
+  }
+  body .bg-dark .content .liste-etud div {
+    border: none;
+  }
+  body .bg-dark .content .liste-etud div:hover {
+    box-shadow: none;
+  }
+  body .content {
+    height: 100%;
+    padding-top: 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  body .content .banner {
+   /* margin-top: 2em;*/
+    background-color: rgb(253, 253, 253);
+    border-bottom: 1px solid rgb(226, 226, 226);
+    display: block;
+    width: 85%;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding: 5px;
+  }
+  body .content .banner .profil-etu {
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 5em;
+    width: 2.5em;
+    height: 2.5em;
+  }
+  body .content .banner img {
+    height: 2.5em;
+    width: 2.5em;
+    margin-left: 5em;
+    cursor: pointer;
+  }
+  body .content .liste-etud {
+    padding: 2em;
+    cursor: pointer;
+    display: grid;
+    grid-gap: 1em;
+    width: 50em;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  body .content .liste-etud .div-etud {
+    background-color: rgb(255, 255, 255);
+    height: 15em;
+    width: 15em;
+    border-radius: 5px;
+    border: 1px solid rgb(241, 241, 241);
+    transition: all ease-in-out 0.3s;
+  }
+  body .content .liste-etud .div-etud:hover {
+    box-shadow: 5px 5px 10px rgb(240, 240, 240);
+  }
+  body .content .liste-etud .div-etud div {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    width: 100%;
+    height: 33.3%;
+  }
+  body .content .liste-etud .div-etud .title {
+    padding: 20px;
+    background-color: rgb(1, 175, 187);
+    height: 45%;
+  }
+  body .content .liste-etud .div-etud .title h4 {
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  body .content .liste-etud .div-etud .title h5 {
+    color: white;
+    font-size: 14px;
+  }
+  body .content .liste-etud .div-etud .body {
+    height: 35%;
+  }
+  body .content .liste-etud .div-etud .footer {
+    border-top: 1px solid rgb(241, 241, 241);
+    display: flex;
+    align-items: start;
+  }
+  body .content .liste-etud .div-etud .footer div {
+    width: 3em;
+    height: 3em;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 5em;
+    width: 1em;
+    height: 1em;
+    transform: translateY(80%);
+    margin-left: 1em;
+   
+    
+  }
+  
+  body .content .liste-etud .div-etud .footer p {
+    transform: translateY(40%);
+    margin-left: 10px;
+  }
+  body .content .liste-etud .div-etud .footer .step  {
+    background-color: red;
+  }
+  body .content .liste-etud .div-etud .footer .dev {
+    background-color: rgb(243, 136, 14);
+  }
+  body .content .liste-etud .div-etud .footer .conclu {
+    background-color: rgb(0, 252, 63);
+  }
+  body .content .liste-etud .div-etud .footer .end {
+    background-color: rgb(0, 139, 252);
+  }
+  
+  .body-dark {
+    background-color: rgb(0, 10, 15);
+  }
+  
+  /*# sourceMappingURL=css.css.map */
+  

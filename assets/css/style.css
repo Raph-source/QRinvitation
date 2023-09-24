@@ -1,0 +1,153 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: poppins, sans-serif;
+}
+
+html {
+  height: 100vh;
+}
+html body {
+  height: 100%;
+  background-color: #2980B9;
+}
+html body .container {
+  height: 100%;
+  position: relative;
+}
+html body .container img {
+  height: 10em;
+  width: 8em;
+  object-fit: cover;
+  position: absolute;
+  top: 32%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+html body .container .hello {
+  padding-top: 2em;
+  text-align: center;
+  color: white;
+  font-weight: bolder;
+}
+html body .container .hello h3 {
+  padding-top: 4px;
+  font-weight: 600;
+  font-size: 20px;
+  text-shadow: 0px 1px rgb(238, 238, 238);
+}
+html body .container .form {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  height: 23em;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html body .container .form form {
+  padding: 2em;
+  border-top-right-radius: 40px;
+  border-top-left-radius: 40px;
+  width: 100%;
+  height: 100%;
+  padding: 5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+html body .container .form form h3 {
+  margin-bottom: 1em;
+  font-weight: bolder;
+  text-shadow: 0px -1px rgb(224, 220, 220);
+}
+html body .container .form form input {
+  padding: 20px;
+  border: none;
+  border-radius: 3px;
+  width: 20em;
+  outline: none;
+  height: 4em;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+html body .container .form form input[type=text], html body .container .form form input[type=password] {
+  border: 2px solid rgb(209, 209, 209);
+  transition: all 0.2s;
+}
+html body .container .form form input[type=text]:focus, html body .container .form form input[type=password]:focus {
+  background-color: rgb(231, 231, 231);
+}
+html body .container .form form input[type=submit] {
+  cursor: pointer;
+  float: left;
+  display: block;
+  text-decoration: none;
+  border-bottom: 5px solid #2980B9;
+  text-shadow: 0px -2px #2980B9;
+  color: white;
+  padding: 1em;
+  background: #3498DB;
+  transition: all 0.3s;
+  transform: translate(0, 5px);
+  border-bottom: 1px solid #2980B9;
+}
+html body .container .form form input[type=submit]:active {
+  transform: translate(0, 5px);
+  border-bottom: 1px solid #2980B9;
+}
+html body .container .form form .erreur {
+  color: red;
+  padding: 0.5em;
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+@media (min-width: 828px) {
+  body .container {
+    display: flex;
+    flex-direction: row;
+  }
+  body .container .hello {
+    position: relative;
+    height: 100%;
+    width: 40%;
+    margin-left: 1em;
+    padding-top: 5em !important;
+  }
+  body .container .hello h3 {
+    padding-top: 3px !important;
+    font-weight: 600;
+    font-size: 30px !important;
+    text-shadow: 0px 1px rgb(238, 238, 238);
+  }
+  body .container img {
+    height: 12em !important;
+    width: 12em !important;
+    top: 32% !important;
+    left: 50% !important;
+    transform: translate(-50%, 30%) !important;
+  }
+  body .container .form {
+    position: relative;
+    z-index: 1;
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-end-start-radius: 50px;
+    border-end-start-radius: 50px;
+    border-top-left-radius: 50px !important;
+    left: 45%;
+    width: 55% !important;
+    height: 100% !important;
+    background-color: #3498DB;
+  }
+  body .container .form form h3 {
+    font-size: 25px !important;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
