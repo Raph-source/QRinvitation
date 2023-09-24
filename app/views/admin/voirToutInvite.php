@@ -1,6 +1,7 @@
 <?php
 $title = 'voir invité';
 $style = ASSETS_CSS.'admin/voirToutInvite.css';
+require_once 'option.php';
 require_once HEADER;
 ?>
 

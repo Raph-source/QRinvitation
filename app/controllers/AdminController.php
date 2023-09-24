@@ -11,11 +11,11 @@
             $this->superGlobal = new SuperGlobal();
         }
         
-        public function getFormAuth(){
+        public function getFormAuth():void{
             require_once VIEW.'admin/authentification.php';
         }
 
-        public function authentification(){
+        public function authentification():void{
             if($this->superGlobal->checkPost(['pseudo', 'pwd'])){
                 
                 //récuperation de valeur du formulaire en les injections
@@ -36,14 +36,14 @@
             }
         }
 
-        public function getFormAjouterInvite(){
+        public function getFormAjouterInvite():void{
             require_once VIEW.'admin/ajouterInvite.php';
         }
 
-        public function ajouterInvite(){
+        public function ajouterInvite():void{
             //vérfication des champs
             if($this->superGlobal->checkPost(['nom', 'prenom', 'phone', 'phoneConf'])){
-                
+                //
                 //récuperation de valeur du formulaire en les injections
                 $nom = $this->superGlobal->post['nom'];
                 $prenom = $this->superGlobal->post['prenom'];
@@ -115,15 +115,15 @@
             }
         }
 
-        public function retourOption(){
+        public function retourOption():void{
             require_once VIEW.'admin/option.php';
         }
 
-        public function getFormSupprimerInvite(){
+        public function getFormSupprimerInvite():void{
             require_once VIEW.'admin/supprimerInvite.php';
         }
 
-        public function supprimerInvite(){
+        public function supprimerInvite():void{
 
             if($this->superGlobal->checkPost(['phone'])){
                 $phone = $this->superGlobal->post['phone'];
@@ -156,11 +156,11 @@
             }
         }
 
-        public function getFormConfirme(){
+        public function getFormConfirme():void{
             require_once VIEW.'admin/confirmeInvite.php';
         }
 
-        public function confirmeInvite(){
+        public function confirmeInvite():void{
 
             if($this->superGlobal->checkPost(['phone'])){
                 $phone = $this->superGlobal->post['phone'];
@@ -192,7 +192,7 @@
 
         }
 
-        public function voirToutInvite(){
+        public function voirToutInvite():void{
             if($this->superGlobal->checkGet(['page'])){
                 
                 $nombreInviteParPage = 2;//nombre d'invité par page
@@ -215,7 +215,49 @@
 
         }
 
-        public function _404(){
+        public function getModifierPwd():void{
+            require_once VIEW.'admin/modifierPwd.php';
+        }
+
+        public function modifierPwd():void{
+            //vérfication des champs
+            if($this->superGlobal->checkPost(['oldPwd', 'newPwd', 'conNewPwd'])){
+                //
+                //récuperation de valeur du formulaire en les injections
+                $oldPwd = $this->superGlobal->post['oldPwd'];
+                $newPwd = $this->superGlobal->post['newPwd'];
+                $conNewPwd = $this->superGlobal->post['conNewPwd'];
+
+                //tester l'égalité du nouveau mot de passe et sa confirmation
+                if($newPwd === $conNewPwd){
+                    //tester si l'ancien mot de passe est correcte
+                    if($this->model->checkPwd($oldPwd)){
+                        //changement du mot de passe
+                        $this->model->changePwd($oldPwd, $newPwd);
+
+                        $notif = "Mot de passe modifié avec succès";
+                        require_once VIEW.'admin/authentification.php';
+                    }
+                    else{
+                        $notif = "Mot de passe incorrecte";
+                        require_once VIEW.'admin/modifierPwd.php';
+                    }
+                }
+                else{
+                    $notif = "le nouveau mot de passe ne correspond pas avec sa confirmation";
+                    require_once VIEW.'admin/modifierPwd.php';
+                }
+            }
+            else{
+                $notif = "pas de champs de vide svp !!!";
+                require_once VIEW.'admin/modifierPwd.php';
+            }
+        }
+
+        public function deconnexion(){
+            require_once VIEW.'admin/authentification.php';
+        }
+        public function _404():void{
             require_once VIEW.'_404.php';
         }
     }

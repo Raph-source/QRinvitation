@@ -19,6 +19,9 @@
                     'confirmer-invite' => 'getFormConfirme',
                     'formulaire-confirme-invite' => 'confirmeInvite',
                     'voir-tout-invite' => 'voirToutInvite',
+                    'modifier-pwd' => 'getModifierPwd',
+                    'formulaire-modifier-pwd' => 'modifierPwd',
+                    'deconnexion' => 'deconnexion',
                     'Erreur404' => '_404'
                 ]
             ];
