@@ -99,7 +99,7 @@
                         }
                     }
                     else{
-                        $notif = "Le numéro est diffèrent du numéro de conformation";
+                        $notif = "Le numéro est diffèrent du numéro de confirmation";
                         require_once VIEW.'admin/ajouterInvite.php';
                     }
                     
