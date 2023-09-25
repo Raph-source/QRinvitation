@@ -18,4 +18,18 @@ class Qr_code extends Model{
 
         return $trouver['id'];
     }
+
+    public function deleteAll(){
+        $requete = $this->bdd->query("DELETE FROM qrCode WHERE id > 0");
+
+        //supprimer les qrCodes
+        $allQrCode = glob(STORAGE.'*');
+        foreach($allQrCode as $qrCode){
+            unlink($qrCode);
+        }
+
+        //remettre l'id client à 1
+        $this->bdd->query("ALTER TABLE qrCode AUTO_INCREMENT = 1");
+
+    }
 }

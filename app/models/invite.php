@@ -49,9 +49,29 @@ class Invite extends Model{
 
     public function delete($phone):bool{
         try{
+            //récuperation de l'id du code QR
+            $requete = $this->bdd->prepare("SELECT i.idCode, q.path FROM invite AS i
+                        INNER JOIN  qrCode AS q ON i.idCode = q.id 
+                        WHERE i.numPhone = :phone");
+
+            $requete->bindParam(':phone', $phone);
+            $requete->execute();
+
+            $idQrCode = $requete->fetch()['idCode'];
+            $path = $requete->fetch()['path'];
+
+            //suppression de l'invité
             $requete = $this->bdd->prepare("DELETE FROM invite WHERE numPhone = :numPhone");
             $requete->bindParam(':numPhone', $phone);
             $requete->execute();
+
+            //suppression du qrCode
+            $requete = $this->bdd->prepare("DELETE FROM qrCode WHERE id = :idQrCode");
+            $requete->bindParam(':idQrCode', $idQrCode);
+            $requete->execute();
+
+            //suppression du qrCode 
+            unlink($path);
 
             return true;
         }
@@ -99,7 +119,9 @@ class Invite extends Model{
     }
 
     public function deleteAll(){
-        $requete = $this->bdd->query("DELETE FROM invite WHERE id > 0");
+        $this->bdd->query("DELETE FROM invite WHERE id > 0");
+
+        $this->bdd->query("DELETE FROM qrCode WHERE id > 0");
 
         //supprimer les qrCodes
         $allQrCode = glob(STORAGE.'*');
@@ -109,6 +131,7 @@ class Invite extends Model{
 
         //remettre l'id client à 1
         $this->bdd->query("ALTER TABLE invite AUTO_INCREMENT = 1");
+        $this->bdd->query("ALTER TABLE qrCode AUTO_INCREMENT = 1");
 
     }
 

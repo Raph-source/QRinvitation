@@ -61,8 +61,8 @@
                     //vérifier l'égalité du numéro et sa confirmation
                     if($phone === $phoneConf){
                         //vérifier que le numéro conforme
-                        if(preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phone) && 
-                           preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phoneConf)){
+                        if(preg_match('/^\+243(97|99|98|81|82|83|84|85|89|80|90|91){1}\d{7}$/', $phone) && 
+                           preg_match('/^\+243(97|99|98|81|82|83|84|85|89|80|90|91){1}\d{7}$/', $phoneConf)){
 
                             //vérifier que le numéro soit unique
                             if($this->model->invite->phoneUnique($phone)){
@@ -129,7 +129,7 @@
             if($this->superGlobal->checkPost(['phone'])){
                 $phone = $this->superGlobal->post['phone'];
                 //vérifier que le numéro conforme
-                if(preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phone)){
+                if(preg_match('/^\+243(97|99|98|81|82|83|84|85|89|80|90|91){1}\d{7}$/', $phone)){
                     if(!$this->model->invite->phoneUnique($phone)){
                         if($this->model->invite->delete($phone)){
                             $notif = "client supprimé avec succès";
@@ -166,7 +166,7 @@
             if($this->superGlobal->checkPost(['phone'])){
                 $phone = $this->superGlobal->post['phone'];
                 //vérifier que le numéro conforme
-                if(preg_match('/^\+243(97|99|98|81|82|83|84|90){1}\d{7}$/', $phone)){
+                if(preg_match('/^\+243(97|99|98|81|82|83|84|85|89|80|90|91){1}\d{7}$/', $phone)){
                     if(!$this->model->invite->phoneUnique($phone)){
                         
                         $trouver = $this->model->invite->find($phone);
@@ -258,6 +258,7 @@
         public function supprimerToutInvite(){
             if($this->model->invite->noEmpty()){
                 $this->model->invite->deleteAll();
+                $this->model->qrCode->deleteAll();
                 $notif = 'Tout les invités ont été supprimer';
             }
             else{
