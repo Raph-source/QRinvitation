@@ -23,7 +23,17 @@ require_once HEADER;
                 </div>
                 <div class="nombreInvite">
                     <img src="<?php echo ASSETS_IMG."" ?>" alt="" srcset="">
-                    <h3>Vous avez <label for="">12</label> invites</h3>
+                    <h3>Vous avez 
+                        <label for="">
+                            <?php 
+                            if(isset($nombreInvite)) 
+                                echo $nombreInvite;
+                            else 
+                                echo 0;
+                            ?>
+                                </label> 
+                        invites
+                    </h3>
                 </div>
             </div>
     </div>
