@@ -11,12 +11,14 @@ html {
 
 body {
   height: 100%;
+  background-color: rgb(238, 238, 238);
 }
 body .container {
   height: 100%;
 }
 body .container .header {
-  position: relative;
+  position: fixed;
+  width: 100%;
   background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: left;
@@ -44,19 +46,22 @@ body .container .header h3 {
 body .container .container-all {
   display: flex;
   justify-content: space-between;
-  height: 90%;
+  height: 100%;
 }
 body .container .container-all .side-bar {
+    position: fixed;
   background-color: rgb(255, 255, 255);
   align-items: center;
   height: 100%;
-  width: 30%;
+  width: 5em;
+  top: 3em;
   overflow: visible;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
   transition: all 0.2s ease-in-out;
+  z-index: 2;
 }
 body .container .container-all .side-bar a {
   display: flex;
@@ -100,13 +105,14 @@ body .container .container-all .side-bar a:hover > svg {
 }
 body .container .container-all .side-bar a:hover {
   color: rgb(0, 162, 190);
-  width: 16em;
+  width: 18em;
   margin-top: 2px;
   margin-bottom: 2px;
   /* $border: 2px solid rgb(241, 241, 241);*/
 }
 body .container .container-all .visible {
-  width: 100%;
+  width: 18em;
+  overflow: hidden;
 }
 body .container .container-all .visible span {
   display: block;
@@ -114,10 +120,11 @@ body .container .container-all .visible span {
   font-size: 15px;
 }
 body .container .container-all .menu-vis {
-  width: 100%;
+  width: 18em;
+  overflow: hidden;
 }
 body .container .container-all .menu-vis a {
-  width: 16em;
+  width: 18em;
 }
 body .container .container-all .menu-vis a span {
   display: block;
@@ -125,6 +132,7 @@ body .container .container-all .menu-vis a span {
   font-size: 15px;
 }
 body .container .container-all .content {
+  padding-top: 5em;
   width: 300%;
   height: 100%;
   border-bottom-left-radius: 30px;

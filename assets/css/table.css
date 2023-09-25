@@ -44,7 +44,11 @@ table tr {
     background-color: rgb(1, 154, 201);
     cursor: pointer;
   }
-
+  .pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
   .index{
     color: white;
     border: none;
@@ -100,4 +104,8 @@ table tr {
     cursor: pointer;
     color: white;
     border: none;
+  }
+  a{
+    text-decoration: none;
+    color: white;
   }

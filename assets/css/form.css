@@ -32,7 +32,7 @@ input[type="tel"]:focus,input[type="text"]:focus,input[type="password"]:focus{
 }
 input[type="submit"]{
     cursor: pointer;
-    float: left;
+    z-index: 1;
     display: block;
     text-decoration: none;
     border-bottom: 5px solid #2980B9;

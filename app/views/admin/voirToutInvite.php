@@ -39,15 +39,19 @@ require_once HEADER;
                         <?php endforeach;?>
                 </tbody>
             </table>
+           <div class='pagination'>;
             <?php for($i = 1; $i <= $nombrePage; $i++){
+                
                     if($i != $pageCourante){
-                        echo '<a href="voir-tout-invite?page='.$i.'">'.$i.'</a>&nbsp';
+                        echo '<button class="index"><a href="voir-tout-invite?page='.$i.'">'.$i.'</a></button>&nbsp';
                     }
                     else{
+                        
                         echo '<button class="index">'.$i.'</button>&nbsp';
                     }
                     
             }?>
+            </div>&nbsp;
         <?php
         else:
         ?>
