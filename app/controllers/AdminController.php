@@ -23,6 +23,7 @@
                 $pwd = $this->superGlobal->post['pwd'];
 
                 if($this->model->checkAuth($pseudo, $pwd)){
+                    $nombreInvite = $this->model->invite->getNombreInvite();
                     require_once VIEW.'admin/acceuil.php';
                 }
                 else{
@@ -254,6 +255,17 @@
             }
         }
 
+        public function supprimerToutInvite(){
+            if($this->model->invite->noEmpty()){
+                $this->model->invite->deleteAll();
+                $notif = 'Tout les invités ont été supprimer';
+            }
+            else{
+                $notif = "il n'existe aucun invité";
+            }
+            require_once VIEW.'admin/acceuil.php';
+            
+        }
         public function deconnexion(){
             require_once VIEW.'admin/authentification.php';
         }

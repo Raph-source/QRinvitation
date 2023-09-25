@@ -21,6 +21,7 @@
                     'voir-tout-invite' => 'voirToutInvite',
                     'modifier-pwd' => 'getModifierPwd',
                     'formulaire-modifier-pwd' => 'modifierPwd',
+                    'supprimer-tout-invite' => 'supprimerToutInvite',
                     'deconnexion' => 'deconnexion',
                     'Erreur404' => '_404'
                 ]

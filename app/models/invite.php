@@ -86,7 +86,37 @@ class Invite extends Model{
         INNER JOIN qrCode AS q ON i.idCode = q.id");
         
         return $requete->fetch()['nombre'];
+    }
 
+    public function noEmpty():bool{
+        $requete = $this->bdd->query("SELECT COUNT(*) AS nombre FROM invite");
+        
+        $nombre = $requete->fetch()['nombre'];
+
+        if($nombre != 0)
+            return true;
+        return false;
+    }
+
+    public function deleteAll(){
+        $requete = $this->bdd->query("DELETE FROM invite WHERE id > 0");
+
+        //supprimer les qrCodes
+        $allQrCode = glob(STORAGE.'*');
+        foreach($allQrCode as $qrCode){
+            unlink($qrCode);
+        }
+
+        //remettre l'id client à 1
+        $this->bdd->query("ALTER TABLE invite AUTO_INCREMENT = 1");
 
     }
+
+    public function getNombreInvite():int{
+        $requete = $this->bdd->query("SELECT COUNT(*) AS nombre FROM invite");
+        
+        return $requete->fetch()['nombre'];
+
+    }
+
 }
