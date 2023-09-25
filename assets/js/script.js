@@ -6,7 +6,12 @@ menu.addEventListener('click',function () {
         element.querySelector('span').style.visibility="visible";
         element.querySelector('span').style.fontSize=15+"px";
     });*/
-    sideBar.classList.toggle("menu-vis");
+    if (sideBar.getAttribute('class')=="side-bar visible") {
+        sideBar.classList.remove('visible');
+    }
+    else{
+        sideBar.classList.toggle("menu-vis");
+    }
 })
 document.querySelectorAll('a').forEach(element => {
     element.addEventListener('mouseover',function(params) {
