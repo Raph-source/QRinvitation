@@ -1,6 +1,7 @@
 <?php
 $title = 'supprimer invité';
 $style = ASSETS_CSS.'admin/accueil.css';
+$style1 = ASSETS_CSS.'form.css';
 require_once HEADER;
 ?>
 <div class="container">
@@ -18,13 +19,18 @@ require_once HEADER;
             </div>
             <div class="content" style=""> 
             <form action="formulaire-supprimer-invite" method="post">
+                <h3>Supprimer un invité</h3>
                 <input type="tel" name="phone" id="" placeholder="Entrez le numéro du client"><br>
                 <input type="submit" value="supprimer">
+                <p class="erreur">
+                <?php
+                
+                    if(isset($notif))
+                        echo $notif;
+                    ?>
+                </p>
             </form>
-            <?php
-                if(isset($notif))
-                    echo $notif;
-            ?>
+
 
                 </div>
             </div>

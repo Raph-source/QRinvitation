@@ -2,6 +2,7 @@
 <?php
 $title = 'comfirmer un invité';
 $style = ASSETS_CSS.'admin/accueil.css';
+$style1 = ASSETS_CSS.'form.css';
 require_once HEADER;
 ?>
 <div class="container">
@@ -19,16 +20,18 @@ require_once HEADER;
             </div>
             <div class="content" style=""> 
             <form action="formulaire-confirme-invite" method="post">
+                <h3>Comfirmer un invité</h3>
                 <input type="tel" name="phone" id="" placeholder="Entrez le numéro du client"><br>
                 <input type="submit" value="confirmer">
-            </form>
-            <?php
+                <?php
                 if(isset($notif))
-                    echo $notif;
+                    echo "<p class='erreur'>".$notif."</p>";
 
                 if(isset($lienQrCode))
                     echo '<img src="'.$lienQrCode.'" alt="qrCode" width="100" heigth="100"><br>';  
-            ?>
+                ?>
+            </form>
+
 
                 </div>
             </div>

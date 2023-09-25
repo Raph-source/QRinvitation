@@ -1,0 +1,103 @@
+table
+{
+    padding: 2em;
+    width: 70%;
+    border-collapse: collapse;
+}
+table tr th{
+    text-align: left;
+    height: 4em;
+    padding: 0.5em;
+    background-color: rgb(231, 231, 231);
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    font-family: poppins;
+}
+table tr {
+    
+    transition: all 0.1s ease-in-out;
+    border-bottom: 0.5px solid rgb(226, 226, 226);
+    cursor: pointer;
+  }
+  
+  table tr:hover {
+    box-shadow: 1px 1px 5px rgb(189, 189, 189);
+  }
+  
+  table td {
+    padding: 0.5em;
+    height: 3em;
+    text-align: left;
+    color: rgb(32, 32, 32);
+
+  }
+  table tr:nth-child(2n) {
+    background-color: rgb(255, 255, 255);
+  }
+  .voir{
+    border-radius: 5px;
+    text-align: center;
+    height: 3em;
+    border: none;
+    color: white;
+    width: 8em;
+    background-color: rgb(1, 154, 201);
+    cursor: pointer;
+  }
+
+  .index{
+    color: white;
+    border: none;
+    width: 3em;
+    height: 3em;
+    background-color: rgb(1, 154, 201);
+    margin-top: 5em;
+    font-size: 15px;
+    margin-right: 1em;
+    padding: 1em;
+  }
+
+
+  .Qrcode{
+    position: absolute;
+    top: 0;
+    height:25em;
+    width: 35em;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0,0);
+    background-color: rgb(243, 243, 243);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .Qrcode {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+  }
+
+  .Qrcode .close {
+    padding: 2em;
+    background-color: rgb(209, 0, 0);
+  }
+  .Qrcode img{
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+  }
+  .Qrcode-vis {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  .Qrcode .close{
+    border-radius: 5px;
+    margin-top: 2em;
+    padding: .8em;
+    background-color: red;
+    cursor: pointer;
+    color: white;
+    border: none;
+  }

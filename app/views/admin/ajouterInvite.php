@@ -1,8 +1,14 @@
 <?php
 $title = 'ajout invité';
 $style = ASSETS_CSS.'admin/accueil.css';
+$style1 = ASSETS_CSS.'form.css';
 require_once HEADER;
 ?>
+<style>
+    form{
+        height: 32em;
+    }
+</style>
 <div class="container">
     <div class="header"><img src="<?php echo ASSETS_IMG."paper-plane.png" ?>" alt="" srcset="">
         <h3>QRInvitation</h3>
@@ -18,6 +24,7 @@ require_once HEADER;
             </div>
             <div class="content" style=""> 
             <form action="form-ajout-invite" method="post">
+                    <h3>Ajouter un invité</h3>
                     <input type="text" name="nom" id="" placeholder="Entrez le nom de l'invité"><br>
                     <input type="text" name="prenom" id="" placeholder="Entrez le prénom de l'invité"><br>
                     <input type="tel" name="phone" id="" placeholder="Entrez le numéro de téléphone de l'invité"><br>
@@ -25,7 +32,7 @@ require_once HEADER;
                     <input type="submit" value="ajouter">
                     <?php
                         if(isset($notif))
-                            echo $notif.'<br>';
+                            echo "<p class='erreur'>".$notif."</p>";
                         if(isset($lienQrCode))
                             echo '<img src="'.$lienQrCode.'" alt="qrCode" width="100" heigth="100"><br>
                                 <a href="'.$lienQrCode.'" download>Téléchar l\'image</a>

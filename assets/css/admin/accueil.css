@@ -47,7 +47,7 @@ body .container .container-all {
   height: 90%;
 }
 body .container .container-all .side-bar {
-  background-color: rgb(247, 247, 247);
+  background-color: rgb(255, 255, 255);
   align-items: center;
   height: 100%;
   width: 30%;
@@ -63,6 +63,7 @@ body .container .container-all .side-bar a {
   align-items: center;
   white-space: nowrap;
   background-color: rgb(255, 255, 255);
+  
   padding: 1.1em;
   /* border-top-left-radius:10px ;
   border-bottom-left-radius: 10px;*/
