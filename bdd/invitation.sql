@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost
--- Généré le : jeu. 21 sep. 2023 à 19:59
+-- Généré le : lun. 25 sep. 2023 à 19:05
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -54,6 +54,24 @@ CREATE TABLE `invite` (
   `idCode` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Déchargement des données de la table `invite`
+--
+
+INSERT INTO `invite` (`id`, `nom`, `prenom`, `numPhone`, `idCode`) VALUES
+(1, 'ruth', 'kayembe', '+243998855354', 1),
+(2, 'Maloba', 'Joel', '+243976960919', 2),
+(3, 'ilunga', 'Eunice', '+243975510051', 3),
+(4, 'Kalenga', 'Chris', '+243991005000', 4),
+(5, 'Mpiana', 'Divin', '+243895552015', 5),
+(6, 'Munga', 'Céclle', '+243975878190', 6),
+(7, 'Banza', 'Hervé', '+243813501830', 7),
+(8, 'Lukanda', 'Yvonne', '+243811699398', 8),
+(9, 'Kunda', 'Bonheur', '+243808000550', 9),
+(10, 'Ngoie', 'Gael', '+243906000500', 10),
+(11, 'ilunga', 'Gaston', '+243917000100', 11),
+(12, 'Banza', 'Donnel', '+243815000850', 12);
+
 -- --------------------------------------------------------
 
 --
@@ -70,8 +88,18 @@ CREATE TABLE `qrCode` (
 --
 
 INSERT INTO `qrCode` (`id`, `path`) VALUES
-(1, '//localhost/QRinvitation/storage/mukebo_ruth_+243975191209.png'),
-(2, '//localhost/QRinvitation/storage/maloba_joe_+243975191209.png');
+(1, '//localhost/QRinvitation/storage/ruth_kayembe_+243998855354.png'),
+(2, '//localhost/QRinvitation/storage/Maloba_Joel_+243976960919.png'),
+(3, '//localhost/QRinvitation/storage/ilunga_Eunice_+243975510051.png'),
+(4, '//localhost/QRinvitation/storage/Kalenga_Chris_+243991005000.png'),
+(5, '//localhost/QRinvitation/storage/Mpiana_Divin_+243895552015.png'),
+(6, '//localhost/QRinvitation/storage/Munga_Céclle_+243975878190.png'),
+(7, '//localhost/QRinvitation/storage/Banza_Hervé_+243813501830.png'),
+(8, '//localhost/QRinvitation/storage/Lukanda_Yvonne_+243811699398.png'),
+(9, '//localhost/QRinvitation/storage/Kunda_Bonheur_+243808000550.png'),
+(10, '//localhost/QRinvitation/storage/Ngoie_Gael_+243906000500.png'),
+(11, '//localhost/QRinvitation/storage/ilunga_Gaston_+243917000100.png'),
+(12, '//localhost/QRinvitation/storage/Banza_Donnel_+243815000850.png');
 
 --
 -- Index pour les tables déchargées
@@ -109,13 +137,13 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT pour la table `invite`
 --
 ALTER TABLE `invite`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT pour la table `qrCode`
 --
 ALTER TABLE `qrCode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
