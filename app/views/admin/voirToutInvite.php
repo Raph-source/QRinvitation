@@ -47,7 +47,7 @@ require_once HEADER;
                     }
                     else{
                         
-                        echo '<button class="index">'.$i.'</button>&nbsp';
+                        echo '<button class="index1">'.$i.'</button>&nbsp';
                     }
                     
             }?>

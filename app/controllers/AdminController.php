@@ -12,7 +12,10 @@
         }
         
         public function getFormAuth():void{
-            require_once VIEW.'admin/authentification.php';
+            if(isset($_SESSION['pseudo']) && isset($_SESSION['pwd']))
+                require_once VIEW.'admin/acceuil.php';
+            else
+                require_once VIEW.'admin/authentification.php';
         }
 
         public function authentification():void{
@@ -23,6 +26,9 @@
                 $pwd = $this->superGlobal->post['pwd'];
 
                 if($this->model->checkAuth($pseudo, $pwd)){
+                    session_start();
+                    $_SESSION['pseudo'] = $pseudo;
+                    $_SESSION['pwd'] = $pwd;
                     $nombreInvite = $this->model->invite->getNombreInvite();
                     require_once VIEW.'admin/acceuil.php';
                 }
@@ -268,6 +274,8 @@
             
         }
         public function deconnexion(){
+            if(isset($_SESSION))
+                session_destroy();
             require_once VIEW.'admin/authentification.php';
         }
         public function _404():void{
