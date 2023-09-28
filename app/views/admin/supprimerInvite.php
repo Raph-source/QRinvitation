@@ -18,10 +18,10 @@ require_once HEADER;
                 ?>
             </div>
             <div class="content" style=""> 
-            <form action="formulaire-supprimer-invite" method="post">
+            <form action="formulaire-supprimer-invite" method="post" id="formulaire">
                 <h3>Supprimer un invité</h3>
                 <input type="tel" name="phone" id="" placeholder="Entrez le numéro du client"><br>
-                <input type="submit" value="supprimer">
+                <input type="submit" value="Supprimer">
                 <p class="erreur">
                 <?php
                 
@@ -30,9 +30,7 @@ require_once HEADER;
                     ?>
                 </p>
             </form>
-
-
-                </div>
+            </div>
             </div>
     </div>
 

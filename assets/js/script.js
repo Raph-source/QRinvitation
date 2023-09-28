@@ -23,3 +23,12 @@ document.querySelectorAll('span').forEach(element => {
         sideBar.classList.toggle("visible");
     })
 });
+
+
+let formulaire = document.getElementById('formulaire');
+
+formulaire.addEventListener('submit', function(event){
+    if(!confirm("voulez-vous supprimer? clickez sur <ok> pour confirmer")){
+        event.preventDefault();
+    }
+});
