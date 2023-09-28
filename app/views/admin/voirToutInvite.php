@@ -39,7 +39,7 @@ require_once HEADER;
                         <?php endforeach;?>
                 </tbody>
             </table>
-           <div class='pagination'>;
+           <div class='pagination'>
             <?php for($i = 1; $i <= $nombrePage; $i++){
                 
                     if($i != $pageCourante){
@@ -77,5 +77,6 @@ require_once HEADER;
 <?php
     $script = ASSETS_JS."script.js";
     $script1 = ASSETS_JS."js.js";
+    $scriptOption = ASSETS_JS.'option.js';
     require_once FOOTER;
 ?>

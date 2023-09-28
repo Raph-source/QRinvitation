@@ -30,5 +30,6 @@ require_once HEADER;
 
 
 <?php
+$scriptOption = ASSETS_JS.'option.js';
 require_once FOOTER;
 ?>

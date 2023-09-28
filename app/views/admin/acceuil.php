@@ -31,8 +31,8 @@ require_once HEADER;
                             else 
                                 echo 0;
                             ?>
-                                </label> 
-                        invites
+                        </label> 
+                        invités
                     </h3>
                 </div>
             </div>
@@ -41,5 +41,6 @@ require_once HEADER;
 </div>
 <?php
     $script = ASSETS_JS."script.js";
+    $scriptOption = ASSETS_JS.'option.js';
     require_once FOOTER;
 ?>
